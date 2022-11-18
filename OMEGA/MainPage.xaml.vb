@@ -3675,6 +3675,15 @@ Partial Public Class MainPage
                                                                             End Sub
             End If
 
+            AddHandler LoadRadio(1849, G, "أصناف مورد").Checked, Sub(sender As Object, e As RoutedEventArgs)
+                                                                     frm = New RPTFromDateToDateToId With {.Flag = 1, .MyFlag = 9}
+                                                                     sender.Tag = New MyPage With {.Content = frm}
+                                                                 End Sub
+
+            AddHandler LoadRadio(1849, G, "أصناف عميل").Checked, Sub(sender As Object, e As RoutedEventArgs)
+                                                                     frm = New RPTFromDateToDateToId With {.Flag = 1, .MyFlag = 13}
+                                                                     sender.Tag = New MyPage With {.Content = frm}
+                                                                 End Sub
         End If
 
         If Md.MyProjectType = ProjectType.X5 Then

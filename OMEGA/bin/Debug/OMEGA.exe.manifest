@@ -247,14 +247,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OMEGA.exe" size="13274112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OMEGA.exe" size="13282304">
       <assemblyIdentity name="OMEGA" version="3.1.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ATyOVseYcnLICXbaE/jm7SruLqO0QHU7zjcg84gI1Bw=</dsig:DigestValue>
+        <dsig:DigestValue>6PqUsqzabT2rbhWF1MWRTPO8/fW5WdXj4qO/dmBmHck=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

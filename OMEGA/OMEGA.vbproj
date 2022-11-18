@@ -321,6 +321,9 @@
     <Compile Include="RPT49.xaml.vb">
       <DependentUpon>RPT49.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RPTFromDateToDateToId.xaml.vb">
+      <DependentUpon>RPTFromDateToDateToId.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SalesMotion.xaml.vb">
       <DependentUpon>SalesMotion.xaml</DependentUpon>
     </Compile>
@@ -1164,6 +1167,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="RPT49.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RPTFromDateToDateToId.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

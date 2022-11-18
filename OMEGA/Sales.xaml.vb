@@ -1178,6 +1178,7 @@ Br:
     End Sub
     Private Sub RdoCash_Checked(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles RdoCash.Checked, RdoVisa.Checked, RdoCashVisa.Checked, RdoFuture.Checked, RdoCashFuture.Checked, RdoEmployees.Checked
         Try
+            If lblGroupBoxPaymentType Is Nothing Then Return
             lblGroupBoxPaymentType.Content = "طريقة الدفع : " & CType(sender, RadioButton).Content
             PaymentType.Text = 0
             If RdoCash.IsChecked Then
@@ -1628,7 +1629,7 @@ Br:
                 For i As Integer = 0 To dt.Columns.Count - 2
                     s &= dt.Rows(0)(i).ToString & IIf(i = dt.Columns.Count - 1, "", vbCrLf)
                 Next
-                If Md.MyProjectType = ProjectType.AboHamza AndAlso dt.Rows(0)(8).ToString <> "" Then
+                If Md.MyProjectType = ProjectType.AboHamza AndAlso dt.Rows(0)(8).ToString <> "الملاحظات: " Then
                     bm.ShowMSG(dt.Rows(0)(8))
                     LopToId = True
                     Notes.Focus()
