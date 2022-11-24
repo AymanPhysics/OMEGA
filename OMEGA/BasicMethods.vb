@@ -1915,7 +1915,7 @@ A:
         If Focus Then control(KeyFields.Length - 1).Focus()
 
         For Each c As Control In MyEditControls
-            c.IsEnabled = True
+            If Not TypeOf c Is DatePicker Then c.IsEnabled = True
         Next
         For Each c As MyGrid In MyEditMyGrid
             c.ReadOnly = False
@@ -3833,6 +3833,9 @@ A:
             'For Each c As Control In EditControls
             '    c.Visibility = IIf(CType(frm.Parent, MyPage).MySecurityType.AllowEdit, c.Visibility, Visibility.Hidden)
             'Next
+            For Each c As Control In EditControls
+                If TypeOf c Is DatePicker Then c.IsEnabled = CType(frm.Parent, MyPage).MySecurityType.AllowEdit
+            Next
             For Each c As Control In DeleteControls
                 c.Visibility = IIf(CType(frm.Parent, MyPage).MySecurityType.AllowDelete, c.Visibility, Visibility.Hidden)
             Next
@@ -3849,7 +3852,10 @@ A:
         ElseIf TypeOf frm.Parent Is MyWindow Then
             'For Each c As Control In EditControls
             '    c.Visibility = IIf(CType(frm.Parent, MyWindow).MySecurityType.AllowEdit, c.Visibility, Visibility.Hidden)
-            'Next
+            'Nextt
+            For Each c As Control In EditControls
+                If TypeOf c Is DatePicker Then c.IsEnabled = CType(frm.Parent, MyWindow).MySecurityType.AllowEdit
+            Next
             For Each c As Control In DeleteControls
                 c.Visibility = IIf(CType(frm.Parent, MyWindow).MySecurityType.AllowDelete, c.Visibility, Visibility.Hidden)
             Next

@@ -1,4 +1,7 @@
 ﻿Imports System.Data
+Imports System.Security.Cryptography
+Imports NPOI.HSSF.UserModel.HeaderFooter
+Imports NPOI.HSSF.Util.HSSFColor
 
 Public Class BankCash62
     Public TableName As String = "BankCash62"
@@ -152,6 +155,7 @@ Public Class BankCash62
     Sub ClearControls()
         If lop Then Return
         lop = True
+        bm.ClearControls(False)
         TeacherId.Clear()
         TeacherId_LostFocus(Nothing, Nothing)
 
@@ -226,13 +230,13 @@ Public Class BankCash62
     End Sub
 
     Private Sub StoreId_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles StoreId.KeyUp
-        If bm.ShowHelp("Stores", StoreId, StoreName, e, "select cast(Id as varchar(100)) Id,Name from Stores") Then
+        If bm.ShowHelp("Stores", StoreId, StoreName, e, "select cast(Id as varchar(100)) Id,Name from Fn_EmpStores(" & Md.UserName & ")") Then
             RoomId.Focus()
         End If
     End Sub
 
     Private Sub StoreId_LostFocus(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles StoreId.LostFocus
-        bm.LostFocus(StoreId, StoreName, "select Name from Stores where Id=" & StoreId.Text.Trim())
+        bm.LostFocus(StoreId, StoreName, "select Name from Fn_EmpStores(" & Md.UserName & ") where Id=" & StoreId.Text.Trim())
         LoadRooms()
     End Sub
 
@@ -323,5 +327,15 @@ Public Class BankCash62
 
     Private Sub TblWeekDayId_LostFocus(sender As Object, e As RoutedEventArgs) Handles TblWeekDayId.LostFocus
         LoadRoomsTable()
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As RoutedEventArgs) Handles btnPrint.Click
+        Dim rpt As New ReportViewer
+        rpt.Header = CType(Parent, Page).Title
+        rpt.paraname = New String() {"@StoreId", "StoreName", "@TblWeekDayId", "TblWeekDayName", "Header"}
+        rpt.paravalue = New String() {Val(StoreId.Text), StoreName.Text, Val(TblWeekDayId.SelectedValue), TblWeekDayId.Text, CType(Parent, Page).Title}
+        rpt.Rpt = "RoomTable.rpt"
+        rpt.Show()
+
     End Sub
 End Class

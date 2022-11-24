@@ -70,7 +70,7 @@ Public Class RPT2
     Private Sub UserControl_Loaded(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles MyBase.Loaded
         If bm.TestIsLoaded(Me, True) Then Return
         LoadResource()
-        bm.Addcontrol_MouseDoubleClick({MainAccNo, SubAccNo, ToMainAccNo})
+        bm.Addcontrol_MouseDoubleClick({MainAccNo, SubAccNo, ToMainAccNo, StoreId})
         bm.FillCombo("LinkFile", MainLinkFile, "", , True)
 
         bm.FillCombo("Fn_AllWindows()", WindowId, "", , True)
@@ -199,6 +199,9 @@ Public Class RPT2
             lblCostCenterSubId.Visibility = Visibility.Hidden
         End If
 
+        StoreId.Text = Md.DefaultStore
+        StoreId_LostFocus(Nothing, Nothing)
+        StoreId.IsEnabled = Md.Manager
 
 
         Dim MyNow As DateTime = bm.MyGetDate()
@@ -296,13 +299,13 @@ Public Class RPT2
 
 
     Private Sub StoreId_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles StoreId.KeyUp
-        If bm.ShowHelp("Stores", StoreId, StoreName, e, "select cast(Id as varchar(100)) Id,Name from Stores") Then
+        If bm.ShowHelp("Stores", StoreId, StoreName, e, "select cast(Id as varchar(100)) Id,Name from Fn_EmpStores(" & Md.UserName & ")") Then
             StoreName.Focus()
         End If
     End Sub
 
     Private Sub StoreId_LostFocus(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles StoreId.LostFocus
-        bm.LostFocus(StoreId, StoreName, "select Name from Stores where Id=" & StoreId.Text.Trim())
+        bm.LostFocus(StoreId, StoreName, "select Name from Fn_EmpStores(" & Md.UserName & ") where Id=" & StoreId.Text.Trim())
     End Sub
 
 

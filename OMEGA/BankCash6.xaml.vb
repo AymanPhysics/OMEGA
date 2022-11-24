@@ -15,7 +15,7 @@ Public Class BankCash6
 
     Private Sub BasicForm_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
         If bm.TestIsLoaded(Me) Then Return
-        bm.TestSecurity(Me, {btnSave}, {btnDelete}, {btnFirst, btnNext, btnPrevios, btnLast, txtID}, {})
+        bm.TestSecurity(Me, {btnSave, DayDate}, {btnDelete}, {btnFirst, btnNext, btnPrevios, btnLast, txtID}, {})
 
         bm.FillCombo("select Id,Name from OpenningHours order by Id", OpenningHoursFrom)
         bm.FillCombo("select Id,Name from OpenningHours order by Id", OpenningHoursTo)
@@ -304,13 +304,13 @@ Public Class BankCash6
     End Sub
 
     Private Sub StoreId_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles StoreId.KeyUp
-        If bm.ShowHelp("Stores", StoreId, StoreName, e, "select cast(Id as varchar(100)) Id,Name from Stores") Then
+        If bm.ShowHelp("Stores", StoreId, StoreName, e, "select cast(Id as varchar(100)) Id,Name from Fn_EmpStores(" & Md.UserName & ")") Then
             RoomId.Focus()
         End If
     End Sub
 
     Private Sub StoreId_LostFocus(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles StoreId.LostFocus
-        bm.LostFocus(StoreId, StoreName, "select Name from Stores where Id=" & StoreId.Text.Trim())
+        bm.LostFocus(StoreId, StoreName, "select Name from Fn_EmpStores(" & Md.UserName & ") where Id=" & StoreId.Text.Trim())
         LoadRooms()
     End Sub
 

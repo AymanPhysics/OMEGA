@@ -158,13 +158,14 @@
                 </ComboBox.Background>
             </ComboBox>
             <Label BorderBrush="#FF078200" BorderThickness="1" Content="اليوم" Foreground="#FF078200" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="5,38,0,0" x:Name="lblID_Copy2" UseLayoutRounding="True" VerticalAlignment="Top" Width="120" />
-            <Button  Content="أول"  Margin="65,288,0,0" x:Name="btnFirst" TabIndex="13" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
-            <Button  Content="سابق"  Margin="143,288,0,0" x:Name="btnPrevios" TabIndex="14" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
-            <Button  Content="تالى"  Margin="221,288,0,0" x:Name="btnNext" TabIndex="15" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
-            <Button  Content="أخير"  Margin="299,288,0,0" x:Name="btnLast" TabIndex="16" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
-            <Button  Content="حفظ"  Margin="65,242,0,0" x:Name="btnSave" TabIndex="20" VerticalAlignment="Top" Width="150" Background="{DynamicResource BgSave}"/>
-            <Button  Content="جديد"  Margin="221,242,0,0" x:Name="btnNew" TabIndex="12" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgNew}" IsTabStop="False"/>
-            <Button  Content="مسح"  Margin="299,242,0,0" x:Name="btnDelete" TabIndex="12" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgDelete}" IsTabStop="False"/>
+            <Button  Content="أول"  Margin="7,288,0,0" x:Name="btnFirst" TabIndex="13" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
+            <Button  Content="سابق"  Margin="85,288,0,0" x:Name="btnPrevios" TabIndex="14" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
+            <Button  Content="تالى"  Margin="163,288,0,0" x:Name="btnNext" TabIndex="15" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
+            <Button  Content="أخير"  Margin="241,288,0,0" x:Name="btnLast" TabIndex="16" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgSave}" IsTabStop="False" />
+            <Button  Content="حفظ"  Margin="7,242,0,0" x:Name="btnSave" TabIndex="20" VerticalAlignment="Top" Width="150" Background="{DynamicResource BgSave}"/>
+            <Button  Content="جديد"  Margin="163,242,0,0" x:Name="btnNew" TabIndex="12" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgNew}" IsTabStop="False"/>
+            <Button  Content="مسح"  Margin="241,242,0,0" x:Name="btnDelete" TabIndex="12" VerticalAlignment="Top" Width="72" Background="{DynamicResource BgDelete}" IsTabStop="False"/>
+            <Button  Content="طباعة"  Margin="323,242,0,0" x:Name="btnPrint" TabIndex="20" VerticalAlignment="Top" Width="131" Background="{DynamicResource BgSave}" Height="86"/>
         </Grid>
     </Grid>
 </UserControl>

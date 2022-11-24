@@ -40,9 +40,9 @@ Imports System.Windows.Shell
 '''</summary>
 Partial Public Class Application
     Inherits System.Windows.Application
-    
+
     Private _contentLoaded As Boolean
-    
+
     '''<summary>
     '''InitializeComponent
     '''</summary>
@@ -74,7 +74,7 @@ Partial Public Class Application
      System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")>  _
     Public Shared Sub Main()
         Dim app As Application = New Application()
-        app.InitializeComponent
+        app.InitializeComponent()
         app.Run
     End Sub
 End Class

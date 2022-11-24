@@ -30,7 +30,9 @@ Public Class RPT48
         If Md.RptFromToday Then FromDate.SelectedDate = ToDate.SelectedDate
 
 
-
+        StoreId.Text = Md.DefaultStore
+        StoreId_LostFocus(Nothing, Nothing)
+        StoreId.IsEnabled = Md.Manager
         LoadResource()
 
     End Sub

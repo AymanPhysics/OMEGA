@@ -5,7 +5,7 @@ Imports System.Drawing
 
 Module Md
     Public LastVersion As Integer = 264
-    Public MyProjectType As ProjectType = ProjectType.AboHamza
+    Public MyProjectType As ProjectType = ProjectType.RivieraCenter
     'Install-Package NavigationPane
 
     Public AllowPreviousYearsForNonManager = True
