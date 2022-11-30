@@ -573,6 +573,7 @@
                                     </LinearGradientBrush>
                                 </TextBox.Background>
                             </TextBox>
+                            <CheckBox Content="إشعار مدين" Height="28" HorizontalAlignment="Left" x:Name="IsDebit" TabIndex="3" VerticalAlignment="Top"  Margin="383,61,0,0" IsTabStop="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" RenderTransformOrigin="3.646,-0.875" Width="98" />
                         </Grid >
 
                     </Grid >

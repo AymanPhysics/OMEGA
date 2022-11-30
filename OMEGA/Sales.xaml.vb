@@ -215,8 +215,8 @@ Public Class Sales
 
         LoadCbo()
 
-        bm.Fields = New String() {"Flag", MainId, SubId, "DayDate", "Shift", "ToId", "ReservToId", "WaiterId", "TableId", "TableSubId", "NoOfPersons", "WithTax", "Taxvalue", "WithService", "ServiceValue", "CancelMinPerPerson", "MinPerPerson", "PaymentType", "CashValue", "DiscountPerc", "DiscountValue", "Notes", "IsClosed", "IsCashierPrinted", "Cashier", "DeliverymanId", "Total", "TotalCount", "TotalAfterDiscount", "DocNo", "AccNo1", "AccNo2", "AccNo3", "AccNo4", "AccType1", "AccType2", "AccType3", "AccType4", "Per1", "Per2", "Per3", "Per4", "Val1", "Val2", "Val3", "Val4", "SaveId", "BankId", "Temp", "OrderTypeId", "AccNo", "CurrencyId", "Shipping", "Freight", "CustomClearance", "PaymentMethodId", "ShippingMethodId", "ContractTerms", "DeliveryDate", "VersionNo", "CaseInvoiceNo", "PurchaseOrder", "SalesTypeId", "PriceListId", "SubAccNo1", "SubAccNo2", "SubAccNo3", "SubAccNo4", "IsPosted", "SphR", "SphL", "CylR", "CylL", "AxisR", "AxisL", "DoctorId", "CostCenterId", "CurrentShift"}
-        bm.control = New Control() {txtFlag, StoreId, InvoiceNo, DayDate, Shift, ToId, ReservToId, WaiterId, TableId, TableSubId, NoOfPersons, WithTax, Taxvalue, WithService, ServiceValue, CancelMinPerPerson, MinPerPerson, PaymentType, CashValue, DiscountPerc, DiscountValue, Notes, IsClosed, IsCashierPrinted, CashierId, DeliverymanId, Total, TotalCount, TotalAfterDiscount, DocNo, AccNo1, AccNo2, AccNo3, AccNo4, AccType1, AccType2, AccType3, AccType4, Per1, Per2, Per3, Per4, Val1, Val2, Val3, Val4, SaveId, BankId, Temp, OrderTypeId, AccNo, CurrencyId, Shipping, Freight, CustomClearance, PaymentMethodId, ShippingMethodId, ContractTerms, DeliveryDate, VersionNo, CaseInvoiceNo, PurchaseOrder, SalesTypeId, PriceListId, SubAccNo1, SubAccNo2, SubAccNo3, SubAccNo4, IsPosted, SphR, SphL, CylR, CylL, AxisR, AxisL, DoctorId, CostCenterId, CurrentShift}
+        bm.Fields = New String() {"Flag", MainId, SubId, "DayDate", "Shift", "ToId", "ReservToId", "WaiterId", "TableId", "TableSubId", "NoOfPersons", "WithTax", "Taxvalue", "WithService", "ServiceValue", "CancelMinPerPerson", "MinPerPerson", "PaymentType", "CashValue", "DiscountPerc", "DiscountValue", "Notes", "IsClosed", "IsCashierPrinted", "Cashier", "DeliverymanId", "Total", "TotalCount", "TotalAfterDiscount", "DocNo", "AccNo1", "AccNo2", "AccNo3", "AccNo4", "AccType1", "AccType2", "AccType3", "AccType4", "Per1", "Per2", "Per3", "Per4", "Val1", "Val2", "Val3", "Val4", "SaveId", "BankId", "Temp", "OrderTypeId", "AccNo", "CurrencyId", "Shipping", "Freight", "CustomClearance", "PaymentMethodId", "ShippingMethodId", "ContractTerms", "DeliveryDate", "VersionNo", "CaseInvoiceNo", "PurchaseOrder", "SalesTypeId", "PriceListId", "SubAccNo1", "SubAccNo2", "SubAccNo3", "SubAccNo4", "IsPosted", "SphR", "SphL", "CylR", "CylL", "AxisR", "AxisL", "DoctorId", "CostCenterId", "CurrentShift", "IsDebit"}
+        bm.control = New Control() {txtFlag, StoreId, InvoiceNo, DayDate, Shift, ToId, ReservToId, WaiterId, TableId, TableSubId, NoOfPersons, WithTax, Taxvalue, WithService, ServiceValue, CancelMinPerPerson, MinPerPerson, PaymentType, CashValue, DiscountPerc, DiscountValue, Notes, IsClosed, IsCashierPrinted, CashierId, DeliverymanId, Total, TotalCount, TotalAfterDiscount, DocNo, AccNo1, AccNo2, AccNo3, AccNo4, AccType1, AccType2, AccType3, AccType4, Per1, Per2, Per3, Per4, Val1, Val2, Val3, Val4, SaveId, BankId, Temp, OrderTypeId, AccNo, CurrencyId, Shipping, Freight, CustomClearance, PaymentMethodId, ShippingMethodId, ContractTerms, DeliveryDate, VersionNo, CaseInvoiceNo, PurchaseOrder, SalesTypeId, PriceListId, SubAccNo1, SubAccNo2, SubAccNo3, SubAccNo4, IsPosted, SphR, SphL, CylR, CylL, AxisR, AxisL, DoctorId, CostCenterId, CurrentShift, IsDebit}
         bm.KeyFields = New String() {"Flag", MainId, SubId}
 
         bm.Table_Name = TableName
@@ -1112,7 +1112,7 @@ Br:
 
             G.Rows(i).Cells(GC.ConsumptionRemainingQty).Value = Val(G.Rows(i).Cells(GC.ConsumptionQty).Value) - Val(G.Rows(i).Cells(GC.Qty).Value) * Val(G.Rows(i).Cells(GC.UnitQty).Value)
 
-            ItemBal.Text = Val(G.CurrentRow.Cells(GC.CurrentBal).Value / G.CurrentRow.Cells(GC.UnitQty).Value)
+            ItemBal.Text = Math.Round(Val(G.CurrentRow.Cells(GC.CurrentBal).Value / G.CurrentRow.Cells(GC.UnitQty).Value), 3, MidpointRounding.AwayFromZero)
             G.Rows(i).Cells(GC.amount).Value = Math.Round(Val(G.Rows(i).Cells(GC.Value).Value) * Val(G.Rows(i).Cells(GC.rate).Value) / 100, 5, MidpointRounding.AwayFromZero)
 
             'CalcItemTax(G.Rows(i).Cells(GC.Id).Value)
@@ -3437,6 +3437,8 @@ Print:
         'lblDeliveryDate.Margin = New Thickness(lblDeliveryDate.Margin.Left, x, lblDeliveryDate.Margin.Right, lblDeliveryDate.Margin.Bottom)
         'DeliveryDate.Margin = New Thickness(DeliveryDate.Margin.Left, x, DeliveryDate.Margin.Right, DeliveryDate.Margin.Bottom)
 
+        IsDebit.Visibility = Windows.Visibility.Hidden
+
         btnImportFromExcel.Visibility = Visibility.Hidden
 
         lblOrderTypeId.Visibility = Visibility.Hidden
@@ -3818,6 +3820,9 @@ Print:
             End If
 
 
+            If TestSalesOnly() OrElse TestExportOnly() Then
+                IsDebit.Visibility = Visibility.Visible
+            End If
 
             If Md.MyProjectType = ProjectType.RivieraCenter And TestSalesOnly() Then
                 btnPoints.Visibility = Visibility.Visible
@@ -4152,7 +4157,7 @@ Print:
             Return
         End If
         Try
-            ItemBal.Text = Val(G.CurrentRow.Cells(GC.CurrentBal).Value / G.CurrentRow.Cells(GC.UnitQty).Value)
+            ItemBal.Text = Math.Round(Val(G.CurrentRow.Cells(GC.CurrentBal).Value / G.CurrentRow.Cells(GC.UnitQty).Value), 3, MidpointRounding.AwayFromZero)
         Catch ex As Exception
             ItemBal.Clear()
         End Try

@@ -59,6 +59,16 @@ Public Class BankCash6
                 AddHandler x.Click, Sub(sender As Object, e As RoutedEventArgs)
                                         RoomId.Text = sender.Tag
                                         RoomId_LostFocus(Nothing, Nothing)
+
+                                        OpenningHoursFrom.SelectedValue = 0
+                                        OpenningHoursTo.SelectedValue = 0
+                                        Dim d1 As Integer = Val(bm.ExecuteScalar("select T.OpenningHoursFrom from BankCash6 T where T.StoreId=" & Val(StoreId.Text) & " and T.RoomId=" & Val(RoomId.Text) & " and T.IsClosed=0"))
+                                        Dim d2 As Integer = Val(bm.ExecuteScalar("select T.OpenningHoursTo from BankCash6 T where T.StoreId=" & Val(StoreId.Text) & " and T.RoomId=" & Val(RoomId.Text) & " and T.IsClosed=0"))
+                                        If d1 > 0 Then
+                                            OpenningHoursFrom.SelectedValue = d1
+                                            OpenningHoursTo.SelectedValue = d2
+                                        End If
+
                                     End Sub
             Next
         Catch
@@ -93,6 +103,8 @@ Public Class BankCash6
     End Sub
 
     Sub FillControls()
+
+        txtID.IsEnabled = True
         bm.FillControls(Me)
         'BankId_LostFocus(Nothing, Nothing)
         TeacherId_LostFocus(Nothing, Nothing)
@@ -183,10 +195,10 @@ Public Class BankCash6
     Sub ClearControls()
         If lop Then Return
         lop = True
+        txtID.IsEnabled = False
 
-
-        Dim d1 As Integer = OpenningHoursFrom.SelectedValue
-        Dim d2 As Integer = OpenningHoursTo.SelectedValue
+        'Dim d1 As Integer = OpenningHoursFrom.SelectedValue
+        'Dim d2 As Integer = OpenningHoursTo.SelectedValue
 
         bm.ClearControls()
         BankId_LostFocus(Nothing, Nothing)
@@ -197,8 +209,8 @@ Public Class BankCash6
         StoreId_LostFocus(Nothing, Nothing)
         RoomId_LostFocus(Nothing, Nothing)
 
-        OpenningHoursFrom.SelectedValue = d1
-        OpenningHoursTo.SelectedValue = d2
+        'OpenningHoursFrom.SelectedValue = d1
+        'OpenningHoursTo.SelectedValue = d2
 
         Dim MyNow As DateTime = bm.MyGetDate()
         DayDate.SelectedDate = MyNow
@@ -341,11 +353,14 @@ Public Class BankCash6
 
 
     Private Sub CustomerId_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles CustomerId.KeyUp
-        bm.ShowHelpCustomers(CustomerId, CustomerName, e)
+        If bm.ShowHelpCustomers(CustomerId, CustomerName, e) Then
+            CustomerId_LostFocus(Nothing, Nothing)
+        End If
     End Sub
 
     Private Sub CustomerId_LostFocus(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles CustomerId.LostFocus
         bm.LostFocus(CustomerId, CustomerName, "select Name from Customers where Id=" & CustomerId.Text.Trim())
+        bm.LostFocus(CustomerId, Balance, "select dbo.Bal0(AccNo,Id,getdate(),0,0,0)Balance from Customers where Id=" & CustomerId.Text.Trim())
     End Sub
 
     Sub Calc() Handles CenterValue.TextChanged, TeacherValue.TextChanged

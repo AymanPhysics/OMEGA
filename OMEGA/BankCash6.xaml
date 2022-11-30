@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="586.94" d:DesignWidth="1114.8">
+             d:DesignHeight="598.797" d:DesignWidth="963.618">
     <Grid Background="{DynamicResource Bg}">
         <Grid Margin="12,12,12,104">
             <Grid.Background>
@@ -105,7 +105,7 @@
                     </LinearGradientBrush>
                 </TextBox.Background>
             </TextBox>
-            <TextBox AutoWordSelection="True" Height="28" IsReadOnly="True" IsTabStop="False" Margin="213,278,0,0" MaxLength="100" x:Name="CustomerName" TabIndex="888" VerticalAlignment="Top" Width="220">
+            <TextBox AutoWordSelection="True" Height="28" IsReadOnly="True" IsTabStop="False" Margin="213,278,0,0" MaxLength="100" x:Name="CustomerName" TabIndex="888" VerticalAlignment="Top" Width="218">
                 <TextBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="White" Offset="0" />
@@ -165,14 +165,14 @@
                     </LinearGradientBrush>
                 </TextBox.Background>
             </TextBox>
-            <TabControl x:Name="PanelTypes" Margin="459,157,11.2,0" HorizontalAlignment="Center" Width="621" UseLayoutRounding="True" Height="144" VerticalAlignment="Top">
+            <TabControl x:Name="PanelTypes" Margin="546,157,10,0" UseLayoutRounding="True" Height="144" VerticalAlignment="Top">
                 <TabItem Header="القاعات" HorizontalAlignment="Center" x:Name="TabTypes" VerticalAlignment="Top">
                     <ScrollViewer x:Name="ScrollViewer2" HorizontalScrollBarVisibility="Disabled" Margin="0,-4,0,4">
                         <WrapPanel x:Name="WRooms"/>
                     </ScrollViewer>
                 </TabItem>
             </TabControl>
-            <TabControl x:Name="PanelTypes_Copy" Margin="459,7,11.2,0" HorizontalAlignment="Center" Width="621" UseLayoutRounding="True" Height="144" VerticalAlignment="Top">
+            <TabControl x:Name="PanelTypes_Copy" Margin="546,7,10,0" UseLayoutRounding="True" Height="144" VerticalAlignment="Top">
                 <TabItem Header="المدرسين" HorizontalAlignment="Center" x:Name="TabTypes1" VerticalAlignment="Top">
                     <ScrollViewer x:Name="ScrollViewer1" HorizontalScrollBarVisibility="Disabled" Margin="0,-4,0,4">
                         <WrapPanel x:Name="WTeachers"/>
@@ -180,14 +180,14 @@
                 </TabItem>
             </TabControl>
             <CheckBox Content="IsClosed" Height="28" HorizontalAlignment="Left" x:Name="IsClosed" TabIndex="3" VerticalAlignment="Top"  Margin="265,113,0,0" IsTabStop="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" RenderTransformOrigin="3.646,-0.875" Width="108" />
-            <TabControl x:Name="PanelTypes_Copy1" Margin="459,306,10.2,58.2" HorizontalAlignment="Center" Width="622" UseLayoutRounding="True">
+            <TabControl x:Name="PanelTypes_Copy1" Margin="545,306,10,58" UseLayoutRounding="True">
                 <TabItem Header="" HorizontalAlignment="Center" x:Name="TabStudents" VerticalAlignment="Top">
                     <Grid Name="GAccTax" Margin="0,0,0,0">
                         <WindowsFormsHost x:Name="WFHStudents" Background="{x:Null}" TabIndex="333" />
                     </Grid>
                 </TabItem>
             </TabControl>
-            <Button  Content="إغلاق القاعة"  Margin="839,0,27.2,14.2" x:Name="btnCloseRoom" TabIndex="20" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="225" Background="{DynamicResource BgSave}"/>
+            <Button  Content="إغلاق القاعة"  Margin="763,0,0,14" x:Name="btnCloseRoom" TabIndex="20" VerticalAlignment="Bottom" Width="225" Background="{DynamicResource BgSave}"/>
             <ComboBox Height="28" IsSynchronizedWithCurrentItem="{x:Null}" Margin="131,146,0,0" x:Name="OpenningHoursFrom" TabIndex="8" VerticalAlignment="Top" Width="96" IsEditable="False" IsTabStop="False">
                 <ComboBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -206,9 +206,17 @@
             </ComboBox>
             <Label BorderBrush="#FF078200" BorderThickness="1" Content="من" Foreground="#FF078200" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="5,146,0,0" x:Name="lblID_Copy" UseLayoutRounding="True" VerticalAlignment="Top" Width="120" />
             <Label BorderBrush="#FF078200" BorderThickness="1" Content="إلي" Foreground="#FF078200" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="233,146,0,0" x:Name="lblID_Copy1" UseLayoutRounding="True" VerticalAlignment="Top" Width="120" />
-            <Button  Content="كشف حساب مدرس"  Margin="535,0,331.2,14.2" x:Name="btnRpt" TabIndex="20" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="225" Background="{DynamicResource BgSave}"/>
+            <Button  Content="كشف حساب مدرس"  Margin="459,0,0,14" x:Name="btnRpt" TabIndex="20" VerticalAlignment="Bottom" Width="225" Background="{DynamicResource BgSave}"/>
             <Label BorderBrush="#FF078200" BorderThickness="1" Content="المدفوع" Foreground="#FF078200" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="5,409,0,0" x:Name="lblPrice_Copy" UseLayoutRounding="True" VerticalAlignment="Top" Width="120" />
             <TextBox AutoWordSelection="True" Height="28" Margin="131,409,0,0" MaxLength="12" x:Name="PaidValue" TabIndex="9" VerticalAlignment="Top" Width="118">
+                <TextBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0" />
+                        <GradientStop Color="#37FFFF00" Offset="1" />
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <TextBox AutoWordSelection="True" Height="28" Margin="436,278,0,0" MaxLength="12" x:Name="Balance" TabIndex="5" VerticalAlignment="Top" Width="96" IsEnabled="False" Foreground="Red" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <TextBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="White" Offset="0" />

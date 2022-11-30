@@ -560,13 +560,13 @@ Public Class BankCash_G2
                 Return
             End If
 
-            If Val(G1.Rows(i).Cells(GC.CheckTypeId).Value) = 2 AndAlso bm.IF_Exists("select * from BankCash_G2 where CheckTypeId=2 and CheckNo='" & G1.Rows(i).Cells(GC.CheckNo).Value & "' and not(Flag=" & Flag & " and BankCash_G2TypeId=" & BankCash_G2TypeId.SelectedValue & " and InvoiceNo=" & Val(txtID.Text) & ")") Then
-                bm.ShowMSG("برجاء اختيار رقم شيك آخر بالسطر " & (i + 1).ToString)
-                G1.Focus()
-                G1.CurrentCell = G1.Rows(i).Cells(GC.Notes)
-                G1.CurrentCell = G1.Rows(i).Cells(GC.DocNo)
-                Return
-            End If
+            'If Val(G1.Rows(i).Cells(GC.CheckTypeId).Value) = 2 AndAlso bm.IF_Exists("select * from BankCash_G2 where CheckTypeId=2 and CheckNo='" & G1.Rows(i).Cells(GC.CheckNo).Value & "' and not(Flag=" & Flag & " and BankCash_G2TypeId=" & BankCash_G2TypeId.SelectedValue & " and InvoiceNo=" & Val(txtID.Text) & ")") Then
+            '    bm.ShowMSG("برجاء اختيار رقم شيك آخر بالسطر " & (i + 1).ToString)
+            '    G1.Focus()
+            '    G1.CurrentCell = G1.Rows(i).Cells(GC.Notes)
+            '    G1.CurrentCell = G1.Rows(i).Cells(GC.DocNo)
+            '    Return
+            'End If
 
             If Md.MyProjectType = ProjectType.X3 AndAlso G1.Columns(GC.CostTypeId).Visible AndAlso Val(G1.Rows(i).Cells(GC.LinkFile).Value) = 9 AndAlso Val(G1.Rows(i).Cells(GC.CostTypeId).Value) = 0 Then
                 bm.ShowMSG("برجاء تحديد نوع التكلفة بالسطر " & (i + 1).ToString)

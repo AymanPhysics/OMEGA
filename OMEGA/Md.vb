@@ -4,8 +4,8 @@ Imports System.Data.Common
 Imports System.Drawing
 
 Module Md
-    Public LastVersion As Integer = 264
-    Public MyProjectType As ProjectType = ProjectType.RivieraCenter
+    Public LastVersion As Integer = 265
+    Public MyProjectType As ProjectType = ProjectType.Market
     'Install-Package NavigationPane
 
     Public AllowPreviousYearsForNonManager = True
