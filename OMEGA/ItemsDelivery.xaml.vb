@@ -1,5 +1,6 @@
 ﻿Imports System.Data
 Imports System.Threading.Tasks
+Imports NPOI.SS.Formula.Functions
 
 Public Class ItemsDelivery
 
@@ -318,7 +319,9 @@ Public Class ItemsDelivery
         dv2.RowFilter = " 1=1"
         For i As Integer = 0 To dt2.Columns.Count - 1
             Try
-                dv2.RowFilter &= " and [" & dt2.Columns(i).ColumnName & "] like '%" & MyTextBoxes2(i).Text & "%' "
+                If MyTextBoxes2(i).Text.Trim <> "" Then
+                    dv2.RowFilter &= " and [" & dt2.Columns(i).ColumnName & "] like '%" & MyTextBoxes2(i).Text & "%' "
+                End If
             Catch
             End Try
         Next
@@ -336,7 +339,9 @@ Public Class ItemsDelivery
         dv3.RowFilter = " 1=1"
         For i As Integer = 0 To dt3.Columns.Count - 1
             Try
-                dv3.RowFilter &= " and [" & dt3.Columns(i).ColumnName & "] like '%" & MyTextBoxes3(i).Text & "%' "
+                If MyTextBoxes3(i).Text.Trim <> "" Then
+                    dv3.RowFilter &= " and [" & dt3.Columns(i).ColumnName & "] like '%" & MyTextBoxes3(i).Text & "%' "
+                End If
             Catch
             End Try
         Next
@@ -390,24 +395,30 @@ Public Class ItemsDelivery
     Private Sub CalcGrid2()
         Total1.Text = "0"
         Total11.Text = "0"
-        For index = 0 To DataGridView2.Items.Count - 1
-            If Val(DataGridView2.Items(index)("Bal0")) > 0 Then
-                Total1.Text += Val(DataGridView2.Items(index)("Bal0"))
-            Else
-                Total11.Text += Val(DataGridView2.Items(index)("Bal0"))
-            End If
-        Next
+        'For index = 0 To DataGridView2.Items.Count - 1
+        '    If Val(DataGridView2.Items(index)("Bal0")) > 0 Then
+        '        Total1.Text += Val(DataGridView2.Items(index)("Bal0"))
+        '    Else
+        '        Total11.Text += Val(DataGridView2.Items(index)("Bal0"))
+        '    End If
+        'Next
+
+        Total1.Text = Val((From row As System.Data.DataRowView In DataGridView2.Items Where row("Bal0") > 0 Select Val(row("Bal0"))).Sum)
+        Total11.Text = Val((From row As System.Data.DataRowView In DataGridView2.Items Where row("Bal0") < 0 Select Val(row("Bal0"))).Sum)
+
     End Sub
 
     Private Sub CalcGrid3()
         Total2.Text = "0"
         Total3.Text = "0"
-        For index = 0 To DataGridView3.Items.Count - 1
-            Total2.Text += Val(DataGridView3.Items(index)("Qty"))
-            Total3.Text += Val(DataGridView3.Items(index)("TotalValue"))
-
-            DataGridView3.BeginEdit()
-        Next
+        'For index = 0 To DataGridView3.Items.Count - 1
+        '    Total2.Text += Val(DataGridView3.Items(index)("Qty"))
+        '    Total3.Text += Val(DataGridView3.Items(index)("TotalValue"))
+        '    DataGridView3.BeginEdit()
+        'Next
+        Total2.Text = bm.GridSumColumn(DataGridView3, "Qty")
+        Total2.Text = bm.GridSumColumn(DataGridView3, "TotalValue")
+        DataGridView3.BeginEdit()
     End Sub
 
     Private Sub SalesDeliveryHistoryInvoiceNo_LostFocus(sender As Object, e As RoutedEventArgs) Handles SalesDeliveryHistoryInvoiceNo.LostFocus

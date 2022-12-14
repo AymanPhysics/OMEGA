@@ -5,7 +5,7 @@ Imports System.Drawing
 
 Module Md
     Public LastVersion As Integer = 265
-    Public MyProjectType As ProjectType = ProjectType.ZohorTaxETA
+    Public MyProjectType As ProjectType = ProjectType.RivieraCenter
     'Install-Package NavigationPane
 
     Public AllowPreviousYearsForNonManager = True

@@ -3177,6 +3177,14 @@ A:
         End Try
     End Function
 
+    Public Function GridSumColumn(G As DataGrid, Col As String) As Decimal
+        Try
+            Return (From row As System.Data.DataRowView In G.Items Select Val(row(Col))).Sum
+        Catch ex As Exception
+            Return 0
+        End Try
+    End Function
+
     Public Function DatatableSumColumn(dt As DataTable, Col As String) As Decimal
         Try
             Return (From row As DataRow In dt.Rows Select Val(row(Col))).Sum
