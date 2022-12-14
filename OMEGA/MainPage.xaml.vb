@@ -451,7 +451,7 @@ Partial Public Class MainPage
     Private Sub LoadGFile(CurrentTab As Integer)
         Dim s As String = "buttonscreen.jpg"
         Select Case Md.MyProjectType
-            Case ProjectType.ZohorOLDXXXXX, ProjectType.ClinicPublic, ProjectType.ClinicWomen, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublicElSadaka, ProjectType.APSD, ProjectType.APS
+            Case ProjectType.ZohorTaxETA, ProjectType.ClinicPublic, ProjectType.ClinicWomen, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublicElSadaka, ProjectType.APSD, ProjectType.APS
                 s = "buttonscreen.jpg"
             Case ProjectType.Perfume
                 s = "buttonscreen3.jpg"
@@ -502,7 +502,7 @@ Partial Public Class MainPage
 
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
             AddHandler LoadRadio(106, G, "Drugs").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                frm = New BasicForm With {.TableName = "Drugs"}
                                                                bm.SetImage(CType(frm, BasicForm).Img, "drugs.jpg")
@@ -572,7 +572,7 @@ Partial Public Class MainPage
                                                                       sender.Tag = New MyPage With {.Content = frm}
                                                                   End Sub
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
 
             AddHandler LoadRadio(117, G, "Degrees").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                  frm = New Degrees
@@ -590,7 +590,7 @@ Partial Public Class MainPage
                                                                            sender.Tag = New MyPage With {.Content = frm}
                                                                        End Sub
 
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     AddHandler LoadRadio(120, G, "Visiting Types").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                                 frm = New BasicForm With {.TableName = "VisitingTypes"}
                                                                                 sender.Tag = New MyPage With {.Content = frm}
@@ -633,7 +633,7 @@ Partial Public Class MainPage
                                                                    End Sub
             End If
         End If
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
             AddHandler LoadRadio(126, G, "Laboratory Test Items").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                                frm = New LabTestItems
                                                                                sender.Tag = New MyPage With {.Content = frm}
@@ -655,7 +655,7 @@ Partial Public Class MainPage
                                                             End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ClinicPublic Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ClinicPublic Then
             AddHandler LoadRadio(129, G, "Companies").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                    frm = New Companies
                                                                    sender.Tag = New MyPage With {.Content = frm}
@@ -668,7 +668,7 @@ Partial Public Class MainPage
                                                          End Sub
 
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.APS Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.APS Then
 
             AddHandler LoadRadio(131, G, "ContactGroups").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                        frm = New BasicForm With {.TableName = "ContactGroups"}
@@ -687,7 +687,7 @@ Partial Public Class MainPage
                                                               End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(134, G, "CallCenterCategories").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                               frm = New BasicForm With {.TableName = "CallCenterCategories"}
                                                                               sender.Tag = New MyPage With {.Content = frm}
@@ -889,7 +889,7 @@ Partial Public Class MainPage
                                                                   frm = New Cases2
                                                                   sender.Tag = New MyPage With {.Content = frm}
                                                               End Sub
-        ElseIf Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ClinicPublic Then
+        ElseIf Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ClinicPublic Then
             AddHandler LoadRadio(203, G, "Patients Data").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                        frm = New Cases4
                                                                        sender.Tag = New MyPage With {.Content = frm}
@@ -907,7 +907,7 @@ Partial Public Class MainPage
         End If
 
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
             If Md.MyProjectType = ProjectType.APSD Then
                 AddHandler LoadRadio(206, G, "Clinics Data").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                           frm = New Clinics
@@ -916,7 +916,7 @@ Partial Public Class MainPage
             End If
 
 
-            If Md.MyProjectType <> ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType <> ProjectType.ZohorTaxETA Then
                 AddHandler LoadRadio(207, G, "OperationsRoomsData").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                                  frm = New Clinics With {.TableName = "OperationsRooms", .Flag = 2}
                                                                                  sender.Tag = New MyPage With {.Content = frm}
@@ -979,7 +979,7 @@ Partial Public Class MainPage
                                                                       sender.Tag = New MyPage With {.Content = frm}
                                                                   End Sub
 
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
 
                     AddHandler LoadRadio(250, G, "ServicesLab").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                              frm = New Services_G With {.IsServicesLab = True}
@@ -994,7 +994,7 @@ Partial Public Class MainPage
             End If
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.APS Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.APS Then
             AddHandler LoadRadio(216, G, "Inpatient Services").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                             frm = New Services_G With {.Flag = 2}
                                                                             sender.Tag = New MyPage With {.Content = frm}
@@ -1034,7 +1034,7 @@ Partial Public Class MainPage
 
         End If
 
-        If Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
 
             AddHandler LoadRadio(248, G, "ReservationsRoomsPre").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                               frm = New ReservationsRoomsPre
@@ -1093,14 +1093,14 @@ Partial Public Class MainPage
                                                                   End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
             AddHandler LoadRadio(229, G, "LabTests").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                   frm = New LabTests
                                                                   sender.Tag = New MyPage With {.Content = frm}
                                                               End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(230, G, "OutCome").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                  frm = New EmpOutcome
                                                                  sender.Tag = New MyPage With {.Content = frm}
@@ -1125,7 +1125,7 @@ Partial Public Class MainPage
 
         LoadLabel(234, G, "")
 
-        If Not Md.MyProjectType = ProjectType.APSD AndAlso Not Md.MyProjectType = ProjectType.APS AndAlso Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Not Md.MyProjectType = ProjectType.APSD AndAlso Not Md.MyProjectType = ProjectType.APS AndAlso Not Md.MyProjectType = ProjectType.ZohorTaxETA Then
 
             AddHandler LoadRadio(235, G, "Invoices Cancelation").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                               frm = New Cancelation
@@ -1195,7 +1195,7 @@ Partial Public Class MainPage
                                                                         End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
 
             AddHandler LoadRadio(245, G, "CaseInvoices").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                       frm = New CaseInvoices
@@ -1219,7 +1219,7 @@ Partial Public Class MainPage
         End If
 
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(247, G, "Open New Year").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                        frm = New RPTToDate With {.Flag = 1}
                                                                        sender.Tag = New MyPage With {.Content = frm}
@@ -1433,7 +1433,7 @@ Partial Public Class MainPage
 
             AddHandler LoadRadio(510, G, "Items").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                frm = New Items
-                                                               If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.Eagle Then 'OrElse Md.MyProjectType = ProjectType.NawarGroup 
+                                                               If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.Eagle Then 'OrElse Md.MyProjectType = ProjectType.NawarGroup 
                                                                    CType(frm, Items).AllowGenerateItemId = True
                                                                    CType(frm, Items).PadLeftCount = 5
                                                                End If
@@ -2410,7 +2410,7 @@ Partial Public Class MainPage
         End If
 
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(869, G, "استلام الحوافظ").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                         frm = New CashierZ
                                                                         sender.Tag = New MyPage With {.Content = frm}
@@ -2602,7 +2602,7 @@ Partial Public Class MainPage
 
         AddHandler LoadRadio(10205, G, "Items").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                              frm = New Items
-                                                             If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.Eagle Then 'OrElse Md.MyProjectType = ProjectType.NawarGroup 
+                                                             If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.Eagle Then 'OrElse Md.MyProjectType = ProjectType.NawarGroup 
                                                                  CType(frm, Items).AllowGenerateItemId = True
                                                                  CType(frm, Items).PadLeftCount = 5
                                                              End If
@@ -2705,7 +2705,7 @@ Partial Public Class MainPage
                                                                End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(1109, G, "Tasks").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                 frm = New Tasks
                                                                 sender.Tag = New MyPage With {.Content = frm}
@@ -2765,7 +2765,7 @@ Partial Public Class MainPage
         Dim G As WrapPanel = MakePanel(CurrentTab, IIf(Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS, "Department Reports", "Clinics Reports"), "report.jpg")
         Dim frm As UserControl
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(1201, G, "Doctors").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                   frm = New RPT25 With {.Flag = 15}
                                                                   sender.Tag = New MyPage With {.Content = frm}
@@ -2783,7 +2783,7 @@ Partial Public Class MainPage
 
         End If
 
-        If Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(1202, G, "Patients Data").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                         frm = New RPT35 With {.Flag = 1}
                                                                         sender.Tag = New MyPage With {.Content = frm}
@@ -2845,13 +2845,13 @@ Partial Public Class MainPage
                                                                               End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.APS Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.APS Then
             AddHandler LoadRadio(1212, G, "CompanyDemand").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                         frm = New RPT5 With {.Flag = 5}
                                                                         sender.Tag = New MyPage With {.Content = frm}
                                                                     End Sub
 
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 AddHandler LoadRadio(1213, G, "CompanyDemandSummarized").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                                       frm = New RPT5 With {.Flag = 5, .Summarized = True}
                                                                                       sender.Tag = New MyPage With {.Content = frm}
@@ -2872,7 +2872,7 @@ Partial Public Class MainPage
                                                                              End Sub
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(1244, G, "ReservationsRoomsPreTotal").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                                     frm = New RPTFromDateToDate With {.Flag = 2}
                                                                                     sender.Tag = New MyPage With {.Content = frm}
@@ -2931,7 +2931,7 @@ Partial Public Class MainPage
                                                                    End Sub
 
         End If
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
 
             AddHandler LoadRadio(1223, G, "LabTests").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                    frm = New RPT17 With {.Flag = 1}
@@ -2986,7 +2986,7 @@ Partial Public Class MainPage
         End If
 
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(1229, G, "OutCome").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                   frm = New RPT25 With {.Flag = 12}
                                                                   sender.Tag = New MyPage With {.Content = frm}
@@ -3132,7 +3132,7 @@ Partial Public Class MainPage
         Dim G As WrapPanel = MakePanel(CurrentTab, "Stores Reports", s)
         Dim frm As UserControl
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(1872, G, "Calc Store Cost").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                           frm = New RPT25 With {.Flag = 8}
                                                                           sender.Tag = New MyPage With {.Content = frm}
@@ -3291,9 +3291,9 @@ Partial Public Class MainPage
 
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
             Dim str As String = "Consumables Detailed"
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 str = "المبيعات نقدي تفصيلي"
             End If
 
@@ -3303,7 +3303,7 @@ Partial Public Class MainPage
                                                         End Sub
 
             str = "Consumables Total"
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 str = "المبيعات نقدي إجمالي"
             End If
             AddHandler LoadRadio(1519, G, str).Checked, Sub(sender As Object, e As RoutedEventArgs)
@@ -3313,7 +3313,7 @@ Partial Public Class MainPage
 
             If Md.ShowStoresMotionsEditing Then
                 str = "Consumables Editing"
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     str = "تعديلات المبيعات نقدي"
                 End If
                 AddHandler LoadRadio(1520, G, "Consumables Editing").Checked, Sub(sender As Object, e As RoutedEventArgs)
@@ -3397,7 +3397,7 @@ Partial Public Class MainPage
 
         End If
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS Then
         Else
             AddHandler LoadRadio(1523, G, "Stores Sales Total").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                              frm = New RPT6 With {.Flag = 3, .Detail = 9}
@@ -3818,7 +3818,7 @@ Partial Public Class MainPage
                                                                                   sender.Tag = New MyPage With {.Content = frm}
                                                                               End Sub
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             AddHandler LoadRadio(1590, G, "Expired Items").Checked, Sub(sender As Object, e As RoutedEventArgs)
                                                                         frm = New RPT12 With {.Flag = 10}
                                                                         sender.Tag = New MyPage With {.Content = frm}
@@ -4827,7 +4827,7 @@ Partial Public Class MainPage
 
     Private Async Sub LoadTabs()
         LoadGFile(1)
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
             LoadGClinics(2)
         End If
 
@@ -4839,7 +4839,7 @@ Partial Public Class MainPage
             LoadGKidneysWash(4)
         End If
 
-        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.StoresOnly OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.AboHamza Then
+        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.StoresOnly OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.AboHamza Then
             LoadGStores(5)
         End If
 
@@ -4851,7 +4851,7 @@ Partial Public Class MainPage
             LoadGSalaries(7)
         End If
 
-        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.TransportationShawkat OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.PLAccounts OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AlSafwaTrading OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.AboHamza OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.TransportationShawkat OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.PLAccounts OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AlSafwaTrading OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.AboHamza OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
             LoadGAccountants(8)
         End If
 
@@ -4873,7 +4873,7 @@ Partial Public Class MainPage
 
         LoadGSecurity(11)
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.ClinicPublic OrElse Md.MyProjectType = ProjectType.ClinicWomen OrElse Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb OrElse Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.MedicalCenter Then
             LoadGClinicsReports(12)
         End If
 
@@ -4885,7 +4885,7 @@ Partial Public Class MainPage
             LoadGKidneysWashReports(14)
         End If
 
-        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.StoresOnly OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX OrElse Md.MyProjectType = ProjectType.AboHamza Then
+        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.StoresOnly OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.ZohorTaxETA OrElse Md.MyProjectType = ProjectType.AboHamza Then
             LoadGStoresReports(15)
         End If
 
@@ -4897,7 +4897,7 @@ Partial Public Class MainPage
             LoadGSalaryReports(17)
         End If
 
-        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.TransportationShawkat OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.PLAccounts OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AlSafwaTrading OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.AboHamza OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.TransportationShawkat OrElse Md.MyProjectType = ProjectType.ContractRaggal OrElse Md.MyProjectType = ProjectType.Clothes OrElse Md.MyProjectType = ProjectType.Perfume OrElse Md.MyProjectType = ProjectType.MarketWithShifts OrElse Md.MyProjectType = ProjectType.Market OrElse Md.MyProjectType = ProjectType.X3 OrElse Md.MyProjectType = ProjectType.Eagle OrElse Md.MyProjectType = ProjectType.PLAccounts OrElse Md.MyProjectType = ProjectType.X4 OrElse Md.MyProjectType = ProjectType.AlSafwaTrading OrElse Md.MyProjectType = ProjectType.AsebAcc OrElse Md.MyProjectType = ProjectType.RivieraCenter OrElse Md.MyProjectType = ProjectType.X2 OrElse Md.MyProjectType = ProjectType.PremiumMedicalSupplies OrElse Md.MyProjectType = ProjectType.X5 OrElse Md.MyProjectType = ProjectType.Installments OrElse Md.MyProjectType = ProjectType.X1 OrElse Md.MyProjectType = ProjectType.AboHamza OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
             LoadGAccountsReports(18)
         End If
 

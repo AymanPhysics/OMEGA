@@ -164,7 +164,7 @@ Public Class Services
         End If
 
         If Val(SerialId.Text) = 0 AndAlso Val(Payed.Text) > 0 Then
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 SerialId.Text = bm.ExecuteScalar("updateServicesSerialIdCo", {"ServiceGroupId", "Flag", "InvoiceNo"}, {ServiceGroupId.SelectedValue.ToString, 1, Val(txtID.Text)})
             Else
                 SerialId.Text = bm.ExecuteScalar("updateServicesSerialId", {"ServiceGroupId", "Flag", "InvoiceNo"}, {ServiceGroupId.SelectedValue.ToString, 1, Val(txtID.Text)})
@@ -173,7 +173,7 @@ Public Class Services
         End If
 
         If SerialId2.IsVisible AndAlso Val(SerialId2.Text) = 0 AndAlso Val(Remaining.Text) > 0 Then
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 SerialId2.Text = bm.ExecuteScalar("updateServicesSerialId2", {"ServiceGroupId", "Flag", "InvoiceNo"}, {ServiceGroupId.SelectedValue.ToString, 1, Val(txtID.Text)})
             Else
                 SerialId2.Text = bm.ExecuteScalar("updateServicesSerialId2", {"ServiceGroupId", "Flag", "InvoiceNo"}, {ServiceGroupId.SelectedValue.ToString, 1, Val(txtID.Text)})

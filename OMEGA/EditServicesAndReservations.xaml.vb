@@ -51,7 +51,7 @@ Public Class EditServicesAndReservations
         G.Columns.Add(GC.Payed, "حصة المريض")
         G.Columns.Add(GC.Remaining, "حصة الشركة")
 
-        If Not Md.Manager AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Not Md.Manager AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA Then
             G.Columns(GC.Value).ReadOnly = True
         End If
 
@@ -126,7 +126,7 @@ Public Class EditServicesAndReservations
         rpt.paraname = New String() {"@Flag", "@Id", "Header", "IsNew"}
         rpt.paravalue = New String() {Flag, txtID.Text, CType(Parent, Page).Title, IIf(IsNew, 1, 0)}
         rpt.Rpt = "ServicesONEG.rpt"
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             rpt.Rpt = "ServicesONEGZohor.rpt"
         End If
         rpt.Print()

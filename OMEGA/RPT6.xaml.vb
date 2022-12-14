@@ -39,7 +39,7 @@ Public Class RPT6
                     rpt.Rpt = "Sales22.rpt"
                 ElseIf Md.MyProjectType = ProjectType.X1 Then
                     rpt.Rpt = "Sales2_O.rpt"
-                ElseIf Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                ElseIf Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     rpt.Rpt = "Sales2_Z.rpt"
                 ElseIf Md.MyProjectType = ProjectType.PremiumMedicalSupplies Then
                     rpt.Rpt = "Sales2_P.rpt"
@@ -51,7 +51,7 @@ Public Class RPT6
                 rpt.Rpt = IIf(Md.MyProjectType = ProjectType.X3, "Sales_N.rpt", "Sales.rpt")
                 If Md.MyProjectType = ProjectType.Clothes Then
                     rpt.Rpt = "SalesColorSize.rpt"
-                ElseIf Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                ElseIf Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     rpt.Rpt = "Sales_Z.rpt"
                 ElseIf Md.MyProjectType = ProjectType.PremiumMedicalSupplies Then
                     rpt.Rpt = "Sales_P.rpt"
@@ -137,7 +137,7 @@ Public Class RPT6
 
         IsService.SelectedIndex = 2
 
-        If Not (Md.MyProjectType = ProjectType.ZohorOLDXXXXX AndAlso (Detail = 0 OrElse Detail = 1)) Then
+        If Not (Md.MyProjectType = ProjectType.ZohorTaxETA AndAlso (Detail = 0 OrElse Detail = 1)) Then
             lblIsService.Visibility = Visibility.Hidden
             IsService.Visibility = Visibility.Hidden
         End If

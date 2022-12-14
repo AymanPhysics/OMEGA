@@ -74,7 +74,7 @@ Public Class OperationMotions
         End If
 
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX AndAlso Md.Receptionist Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA AndAlso Md.Receptionist Then
             Dr1Value.Visibility = Visibility.Hidden
             Dr2Value.Visibility = Visibility.Hidden
             Dr3Value.Visibility = Visibility.Hidden
@@ -84,7 +84,7 @@ Public Class OperationMotions
             lblConsumablesValue.Visibility = Visibility.Hidden
             ConsumablesValue.Visibility = Visibility.Hidden
         End If
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             lblRefereId.Visibility = Visibility.Hidden
             RefereId.Visibility = Visibility.Hidden
             RefereName.Visibility = Visibility.Hidden
@@ -725,7 +725,7 @@ Public Class OperationMotions
 
             Dim OperationDescriptionId As Integer = Val(bm.ExecuteScalar("select OperationDescriptionId from OperationTypes where Id=" & OperationTypeId))
 
-            If Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
 
                 RoomValue.Text = Val(RoomValue.Text) + Val(bm.ExecuteScalar("select isnull(T.Price,0) from OperationTypeRooms T where RoomTypeId=(select R.RoomTypeId from Rooms R where Id=" & Val(RoomId.SelectedValue) & ") and OperationTypeId=" & OperationTypeId)) * Perc / 100
                 RoomValue2.Text = Val(RoomValue2.Text) + Val(bm.ExecuteScalar("select isnull(Living,0) from RoomTypes where Id=(select R.RoomTypeId from Rooms R where Id=" & Val(RoomId.SelectedValue) & ")")) * Perc / 100

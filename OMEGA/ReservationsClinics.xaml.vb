@@ -271,7 +271,7 @@ Public Class ReservationsClinics
         '    LastSerialId.Text = SerialId2.Text
         'End If
 
-        If Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX AndAlso Not MyProjectType = ProjectType.ClinicPublic AndAlso Not MyProjectType = ProjectType.ClinicWomen AndAlso Not MyProjectType = ProjectType.ClinicDrSaberWaheeb AndAlso Not Canceled.IsChecked AndAlso Not Returned.IsChecked AndAlso sender Is btnSave Then ShowRPT()
+        If Not Md.MyProjectType = ProjectType.ZohorTaxETA AndAlso Not MyProjectType = ProjectType.ClinicPublic AndAlso Not MyProjectType = ProjectType.ClinicWomen AndAlso Not MyProjectType = ProjectType.ClinicDrSaberWaheeb AndAlso Not Canceled.IsChecked AndAlso Not Returned.IsChecked AndAlso sender Is btnSave Then ShowRPT()
 
         bm.ExecuteNonQuery("update Cases set InOut=1 where Id=" & CaseId.Text.Trim() & "     insert CaseStatus(CaseId,UserName,MyGetDate,InOut) select " & Val(CaseId.Text) & "," & Md.UserName & ",GetDate()," & 1)
 

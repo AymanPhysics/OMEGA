@@ -88,7 +88,7 @@ Public Class RPT33
                     CaseID_LostFocus(sender, Nothing)
                 End If
             Case Else
-                If bm.ShowHelpCases(CaseId, CaseName, e, Md.MyProjectType = ProjectType.ZohorOLDXXXXX) Then
+                If bm.ShowHelpCases(CaseId, CaseName, e, Md.MyProjectType = ProjectType.ZohorTaxETA) Then
                     CaseID_LostFocus(sender, Nothing)
                 End If
         End Select
@@ -99,7 +99,7 @@ Public Class RPT33
             Case 1, 2
                 bm.LostFocus(CaseId, CaseName, "select Name from Cases2 where Id=" & CaseId.Text.Trim())
             Case Else
-                bm.LostFocus(CaseId, CaseName, "select Name from Cases where Id=" & CaseId.Text.Trim() & IIf(Md.MyProjectType = ProjectType.ZohorOLDXXXXX, " and InOut=1", ""))
+                bm.LostFocus(CaseId, CaseName, "select Name from Cases where Id=" & CaseId.Text.Trim() & IIf(Md.MyProjectType = ProjectType.ZohorTaxETA, " and InOut=1", ""))
         End Select
     End Sub
 

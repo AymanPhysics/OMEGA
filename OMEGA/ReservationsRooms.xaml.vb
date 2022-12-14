@@ -23,7 +23,7 @@ Public Class ReservationsRooms
 
         LoadWFH()
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             btnDoctorInstruction.Visibility = Visibility.Hidden
             btnInpatientList.Visibility = Visibility.Hidden
 
@@ -263,7 +263,7 @@ Public Class ReservationsRooms
 
 
 
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 For i As Integer = 0 To G.Rows.Count - 1
                     Try
                         If G.Rows(i).Cells(GC.Value).Value > 0 AndAlso G.Rows(i).Cells(GC.Line).Value = 0 Then
@@ -516,7 +516,7 @@ Public Class ReservationsRooms
         rpt.paraname = New String() {"Header"}
         rpt.paravalue = New String() {CType(Parent, Page).Title}
         rpt.Rpt = "RoomsDataAll.rpt"
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             rpt.Rpt = "RoomsDataAll_Z.rpt"
             If sender Is btnPrintAll2 Then
                 rpt.Rpt = "RoomsDataAll_Z2.rpt"

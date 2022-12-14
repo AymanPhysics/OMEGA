@@ -157,7 +157,7 @@ Class MyMainWindow
             langSwitcher.Visibility = Visibility.Hidden
             Dim L As New Login
             Select Case Md.MyProjectType
-                Case ProjectType.ZohorOLDXXXXX, ProjectType.ClinicPublic, ProjectType.ClinicWomen, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublicElSadaka, ProjectType.APSD, ProjectType.APS
+                Case ProjectType.ZohorTaxETA, ProjectType.ClinicPublic, ProjectType.ClinicWomen, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublicElSadaka, ProjectType.APSD, ProjectType.APS
                     'btnChangeLanguage.Visibility = Visibility.Visible
                     langSwitcher.Visibility = Visibility.Visible
             End Select
@@ -175,7 +175,7 @@ Class MyMainWindow
             End If
 
             Select Case Md.MyProjectType
-                Case ProjectType.ZohorOLDXXXXX, ProjectType.ClinicPublic, ProjectType.ClinicWomen, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublicElSadaka, ProjectType.APSD, ProjectType.APS
+                Case ProjectType.ZohorTaxETA, ProjectType.ClinicPublic, ProjectType.ClinicWomen, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublicElSadaka, ProjectType.APSD, ProjectType.APS
                 Case ProjectType.TransportationShawkat
                     bm.SetImage(L.Img, "buttonscreen2.jpg")
                 Case Else

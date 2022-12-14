@@ -619,8 +619,6 @@ D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\Syncfusion.Compression.Base.dll
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\Syncfusion.Licensing.dll
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\Syncfusion.XlsIO.Base.dll
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\System.Management.Automation.dll
-D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\System.Net.Http.Extensions.dll
-D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\System.Net.Http.Primitives.dll
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\ToastNotifications.dll
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\ToastNotifications.Messages.dll
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\WhatsAppApi.dll
@@ -640,12 +638,8 @@ D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\Pkcs11Interop.xml
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\Syncfusion.Compression.Base.xml
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\Syncfusion.XlsIO.Base.xml
 D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\System.Management.Automation.xml
-D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\System.Net.Http.Extensions.xml
-D:\Projects\Projects\OMEGA\OMEGA\bin\Debug\System.Net.Http.Primitives.xml
-D:\Projects\Projects\OMEGA\OMEGA\obj\Debug\OMEGA.vbproj.App.config
 D:\Projects\Projects\OMEGA\OMEGA\obj\Debug\OMEGA.vbproj.AssemblyReference.cache
 D:\Projects\Projects\OMEGA\OMEGA\obj\Debug\OMEGA.vbproj.SuggestedBindingRedirects.cache
-D:\Projects\Projects\OMEGA\OMEGA\obj\Debug\OMEGA.exe.config
 D:\Projects\Projects\OMEGA\OMEGA\obj\Debug\App.baml
 D:\Projects\Projects\OMEGA\OMEGA\obj\Debug\BankCash62.baml
 D:\Projects\Projects\OMEGA\OMEGA\obj\Debug\BankCash6.baml

@@ -238,7 +238,7 @@ Public Class RPT25
         Select Case Flag
             Case 8, 20
                 Select Case Md.MyProjectType
-                    Case ProjectType.X3, ProjectType.RivieraCenter, ProjectType.PremiumMedicalSupplies, ProjectType.Installments, ProjectType.X1, ProjectType.ZohorOLDXXXXX
+                    Case ProjectType.X3, ProjectType.RivieraCenter, ProjectType.PremiumMedicalSupplies, ProjectType.Installments, ProjectType.X1, ProjectType.ZohorTaxETA
                         IsFIFOTABLE = True
                         If IsCalcFifoFromOutside Then
                             MyFromDate = bm.ExecuteScalar("select isnull(MAX(DayDate),'2000-01-01') from FIFO")

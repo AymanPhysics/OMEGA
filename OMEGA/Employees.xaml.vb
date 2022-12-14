@@ -40,7 +40,7 @@ Public Class Employees
                 TabItemShifts.Visibility = Visibility.Collapsed
                 TabSpecialDyas.Visibility = Visibility.Collapsed
                 TabItemJobDescribtion.IsSelected = True
-            Case ProjectType.ZohorOLDXXXXX, ProjectType.ClinicPublic, ProjectType.ClinicDrSaberWaheeb, ProjectType.MedicalCenter 'ProjectType.ClinicWomen,
+            Case ProjectType.ZohorTaxETA, ProjectType.ClinicPublic, ProjectType.ClinicDrSaberWaheeb, ProjectType.MedicalCenter 'ProjectType.ClinicWomen,
 
                 lblTax.Visibility = Visibility.Hidden
                 lblTax2.Visibility = Visibility.Hidden
@@ -50,7 +50,7 @@ Public Class Employees
                 TaxAccNo.Visibility = Visibility.Hidden
                 TaxAccName.Visibility = Visibility.Hidden
 
-                If Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Not Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     lblStoreId.Visibility = Visibility.Hidden
                     StoreId.Visibility = Visibility.Hidden
                     StoreName.Visibility = Visibility.Hidden
@@ -204,7 +204,7 @@ Public Class Employees
         End Select
 
         Select Case Md.MyProjectType
-            Case ProjectType.APS, ProjectType.APSD, ProjectType.ZohorOLDXXXXX, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublic, ProjectType.ClinicPublicElSadaka, ProjectType.ClinicWomen
+            Case ProjectType.APS, ProjectType.APSD, ProjectType.ZohorTaxETA, ProjectType.ClinicDrSaberWaheeb, ProjectType.ClinicPublic, ProjectType.ClinicPublicElSadaka, ProjectType.ClinicWomen
                 Nurse.Content = "تمريض"
             Case Else
                 Nurse.Visibility = Visibility.Hidden
@@ -609,7 +609,7 @@ Public Class Employees
         'Thursday.IsChecked = True
         'Friday.IsChecked = True
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             For i As Integer = 0 To TabControl1.Items.Count - 1
                 CType(TabControl1.Items(i), TabItem).Visibility = Visibility.Collapsed
             Next
@@ -683,7 +683,7 @@ Public Class Employees
         'Thursday.IsChecked = False
         'Friday.IsChecked = False
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             TabControl1.Visibility = Visibility.Collapsed
         End If
     End Sub

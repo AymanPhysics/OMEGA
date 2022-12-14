@@ -71,7 +71,7 @@ Public Class BasicForm
         bm.Table_Name = TableName
         btnNew_Click(sender, e)
 
-        If Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX AndAlso Not Md.MyProjectType = ProjectType.ClinicPublic AndAlso Not Md.MyProjectType = ProjectType.ClinicWomen AndAlso Not Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb AndAlso Not Md.MyProjectType = ProjectType.ClinicPublicElSadaka AndAlso Not Md.MyProjectType = ProjectType.APSD AndAlso Not Md.MyProjectType = ProjectType.APS Then bm.SetImage(Img, "attchmentfile.jpg")
+        If Not Md.MyProjectType = ProjectType.ZohorTaxETA AndAlso Not Md.MyProjectType = ProjectType.ClinicPublic AndAlso Not Md.MyProjectType = ProjectType.ClinicWomen AndAlso Not Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb AndAlso Not Md.MyProjectType = ProjectType.ClinicPublicElSadaka AndAlso Not Md.MyProjectType = ProjectType.APSD AndAlso Not Md.MyProjectType = ProjectType.APS Then bm.SetImage(Img, "attchmentfile.jpg")
 
     End Sub
 

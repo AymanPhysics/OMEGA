@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="OMEGA.exe.manifest" size="23928">
+    <dependentAssembly dependencyType="install" codebase="OMEGA.exe.manifest" size="22518">
       <assemblyIdentity name="OMEGA.exe" version="3.1.0.0" publicKeyToken="0000000000000000" language="ar-EG" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZBwzJVfcOKT1pDzyNj9S5OuFB+kwkQByWLie76snRSk=</dsig:DigestValue>
+        <dsig:DigestValue>0l5qO7sDMd1j2QOSmVnJTWCB9KksMIbdyiiz0VPsbss=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

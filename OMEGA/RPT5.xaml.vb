@@ -25,7 +25,7 @@ Public Class RPT5
         Select Case Flag
             Case 1
                 rpt.Rpt = "Invoices.rpt"
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     If Not Md.Manager AndAlso EmpId.SelectedIndex = 0 AndAlso Val(DepartmentId.Text) = 0 AndAlso Val(CompanyId.Text) = 0 AndAlso Val(CaseId.Text) = 0 Then
                         bm.ShowMSG("برجاء تحديد أحد الخيارات")
                         Return
@@ -38,7 +38,7 @@ Public Class RPT5
                 rpt.Rpt = "InvoicesLab.rpt"
             Case 4
                 rpt.Rpt = "Invoices2.rpt"
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     rpt.Rpt = "Invoices22.rpt"
                 End If
             Case 5
@@ -81,7 +81,7 @@ Public Class RPT5
         FromDate.SelectedDate = New DateTime(MyNow.Year, MyNow.Month, MyNow.Day, 0, 0, 0)
         ToDate.SelectedDate = New DateTime(MyNow.Year, MyNow.Month, MyNow.Day, 0, 0, 0)
 
-        If Flag = 4 AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Flag = 4 AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA Then
             FromDate.SelectedDate = New DateTime(MyNow.Year, MyNow.Month, 1, 0, 0, 0)
         End If
 

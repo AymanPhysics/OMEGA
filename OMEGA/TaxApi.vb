@@ -373,7 +373,7 @@ Public Class TaxApi
                 ""exportPort"": """",
                 ""grossWeight"": " & Dec5(Weight) & ",
                 ""netWeight"": " & Dec5(Weight) & ",
-                ""terms"": """"
+                ""terms"": """ & SalesMasterDT.Rows(0)("Notes") & """
             },
             ""invoiceLines"": [
             " & invoiceLines & "                 
@@ -787,86 +787,86 @@ Public Class TaxApi
         Try
 
             Dim factories As New Pkcs11InteropFactories()
-        Dim pkcs11Library As IPkcs11Library = factories.Pkcs11LibraryFactory.LoadPkcs11Library(factories, DllLibPath, AppType.MultiThreaded)
+            Dim pkcs11Library As IPkcs11Library = factories.Pkcs11LibraryFactory.LoadPkcs11Library(factories, DllLibPath, AppType.MultiThreaded)
 
-        Dim slot As ISlot = pkcs11Library.GetSlotList(SlotsType.WithTokenPresent).FirstOrDefault()
+            Dim slot As ISlot = pkcs11Library.GetSlotList(SlotsType.WithTokenPresent).FirstOrDefault()
 
-        If (slot Is Nothing) Then
-            bm.ShowMSG("No slots found")
-            Return "No slots found"
-        End If
-
-        Dim tokenInfo As ITokenInfo = slot.GetTokenInfo()
-
-        Dim slotInfo As ISlotInfo = slot.GetSlotInfo()
-
-
-        Dim session = slot.OpenSession(SessionType.ReadWrite)
-        Try
-            session.Login(CKU.CKU_USER, Encoding.UTF8.GetBytes(TokenPin))
-        Catch ex As Exception
-        End Try
-
-        Dim certificateSearchAttributes = New List(Of IObjectAttribute)() From {
-        session.Factories.ObjectAttributeFactory.Create(CKA.CKA_CLASS, CKO.CKO_CERTIFICATE),
-        session.Factories.ObjectAttributeFactory.Create(CKA.CKA_TOKEN, True),
-        session.Factories.ObjectAttributeFactory.Create(CKA.CKA_CERTIFICATE_TYPE, CKC.CKC_X_509)}
-
-
-        Dim certificate As Net.Pkcs11Interop.HighLevelAPI.IObjectHandle = session.FindAllObjects(certificateSearchAttributes).FirstOrDefault()
-
-        If (certificate Is Nothing) Then
-            bm.ShowMSG("Certificate not found")
-            Return "Certificate not found"
-        End If
-
-        Dim store As New X509Store(StoreName.My, StoreLocation.CurrentUser)
-        store.Open(OpenFlags.MaxAllowed)
-
-        'find cert by thumbprint
-        Dim foundCerts = store.Certificates.Find(X509FindType.FindByIssuerName, "Egypt Trust Sealing CA", True)
-
-        If (foundCerts.Count = 0) Then
-            foundCerts = store.Certificates.Find(X509FindType.FindByIssuerName, "Misr for central clearing,depository and registry", True)
-            If (foundCerts.Count = 0) Then
-                bm.ShowMSG("no device detected")
-                Return "no device detected"
+            If (slot Is Nothing) Then
+                bm.ShowMSG("No slots found")
+                Return "No slots found"
             End If
-        End If
+
+            Dim tokenInfo As ITokenInfo = slot.GetTokenInfo()
+
+            Dim slotInfo As ISlotInfo = slot.GetSlotInfo()
+
+
+            Dim session = slot.OpenSession(SessionType.ReadWrite)
+            Try
+                session.Login(CKU.CKU_USER, Encoding.UTF8.GetBytes(TokenPin))
+            Catch ex As Exception
+            End Try
+
+            Dim certificateSearchAttributes = New List(Of IObjectAttribute)() From {
+            session.Factories.ObjectAttributeFactory.Create(CKA.CKA_CLASS, CKO.CKO_CERTIFICATE),
+            session.Factories.ObjectAttributeFactory.Create(CKA.CKA_TOKEN, True),
+            session.Factories.ObjectAttributeFactory.Create(CKA.CKA_CERTIFICATE_TYPE, CKC.CKC_X_509)}
+
+
+            Dim certificate As Net.Pkcs11Interop.HighLevelAPI.IObjectHandle = session.FindAllObjects(certificateSearchAttributes).FirstOrDefault()
+
+            If (certificate Is Nothing) Then
+                bm.ShowMSG("Certificate not found")
+                Return "Certificate not found"
+            End If
+
+            Dim store As New X509Store(StoreName.My, StoreLocation.CurrentUser)
+            store.Open(OpenFlags.MaxAllowed)
+
+            'find cert by thumbprint
+            Dim foundCerts = store.Certificates.Find(X509FindType.FindByIssuerName, "Egypt Trust Sealing CA", True)
+
+            If (foundCerts.Count = 0) Then
+                foundCerts = store.Certificates.Find(X509FindType.FindByIssuerName, "Misr for central clearing,depository and registry", True)
+                If (foundCerts.Count = 0) Then
+                    bm.ShowMSG("no device detected")
+                    Return "no device detected"
+                End If
+            End If
 
 
 
 
-        Dim certForSigning = foundCerts(0)
-        store.Close()
+            Dim certForSigning = foundCerts(0)
+            store.Close()
 
 
-        Dim content As New ContentInfo(New Oid("1.2.840.113549.1.7.5"), data)
+            Dim content As New ContentInfo(New Oid("1.2.840.113549.1.7.5"), data)
 
 
-        Dim cms As New SignedCms(content, True)
+            Dim cms As New SignedCms(content, True)
 
 
-        Dim bouncyCertificate As EssCertIDv2 = New EssCertIDv2(New Org.BouncyCastle.Asn1.X509.AlgorithmIdentifier(New DerObjectIdentifier("1.2.840.113549.1.9.16.2.47")), HashBytes(certForSigning.RawData))
+            Dim bouncyCertificate As EssCertIDv2 = New EssCertIDv2(New Org.BouncyCastle.Asn1.X509.AlgorithmIdentifier(New DerObjectIdentifier("1.2.840.113549.1.9.16.2.47")), HashBytes(certForSigning.RawData))
 
 
-        Dim signerCertificateV2 As New SigningCertificateV2(New EssCertIDv2() {bouncyCertificate})
+            Dim signerCertificateV2 As New SigningCertificateV2(New EssCertIDv2() {bouncyCertificate})
 
 
-        Dim signer As New CmsSigner(certForSigning)
+            Dim signer As New CmsSigner(certForSigning)
 
-        signer.DigestAlgorithm = New Oid("2.16.840.1.101.3.4.2.1")
+            signer.DigestAlgorithm = New Oid("2.16.840.1.101.3.4.2.1")
 
 
 
-        signer.SignedAttributes.Add(New Pkcs9SigningTime(DateTime.UtcNow))
-        signer.SignedAttributes.Add(New AsnEncodedData(New Oid("1.2.840.113549.1.9.16.2.47"), signerCertificateV2.GetEncoded()))
+            signer.SignedAttributes.Add(New Pkcs9SigningTime(DateTime.UtcNow))
+            signer.SignedAttributes.Add(New AsnEncodedData(New Oid("1.2.840.113549.1.9.16.2.47"), signerCertificateV2.GetEncoded()))
 
-        cms.ComputeSignature(signer)
+            cms.ComputeSignature(signer)
 
-        Dim output = cms.Encode()
+            Dim output = cms.Encode()
 
-        Return Convert.ToBase64String(output)
+            Return Convert.ToBase64String(output)
 
         Catch ex As Exception
             Return ""

@@ -82,7 +82,7 @@ Public Class Items
             IsKidneysWash.Visibility = Visibility.Hidden
         End If
 
-        If Not (Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX) Then
+        If Not (Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorTaxETA) Then
             Flag.Visibility = Visibility.Hidden
         End If
 
@@ -484,7 +484,7 @@ Public Class Items
     Private Sub txtID_KeyUp(sender As Object, e As KeyEventArgs) Handles txtID.KeyUp
         Try
             Dim str As String = ""
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 str = " where (GroupId=" & Val(GroupId.Text) & " or " & Val(GroupId.Text) & "=0) and (TypeId=" & Val(TypeId.Text) & " or " & Val(TypeId.Text) & "=0)"
             End If
             If bm.ShowHelp("Items", txtID, txtName, e, "select cast(Id as varchar(100)) Id,Name from Items " & str) Then txtName.Focus()

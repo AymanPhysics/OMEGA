@@ -82,7 +82,7 @@ Public Class EmpCloseShift
             Dim rpt As New ReportViewer
             rpt.paraname = New String() {"@UserId", "Header"}
             rpt.paravalue = New String() {CboMain.SelectedValue.ToString, CType(Parent, Page).Title}
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 rpt.Rpt = "EmpCloseShiftOne2.rpt"
                 rpt.Print()
             Else

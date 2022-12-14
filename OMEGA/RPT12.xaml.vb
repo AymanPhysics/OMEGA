@@ -36,16 +36,16 @@ Public Class RPT12
                 rpt.Rpt = "StoreBal.rpt"
                 If Md.MyProjectType = ProjectType.Clothes Then rpt.Rpt = "StoreBalSizes.rpt"
                 If Md.MyProjectType = ProjectType.X1 Then rpt.Rpt = "StoreBal_O.rpt"
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then rpt.Rpt = "StoreBal_Z.rpt"
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then rpt.Rpt = "StoreBal_Z.rpt"
             Case 3
                 rpt.Rpt = "StoreBalAll.rpt"
             Case 4
                 rpt.Rpt = "StoreBalLimit.rpt"
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then rpt.Rpt = "StoreBalLimit_Z.rpt"
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then rpt.Rpt = "StoreBalLimit_Z.rpt"
             Case 5, 51, 52
                 rpt.Rpt = "StoreBalCost.rpt"
                 If Md.MyProjectType = ProjectType.X1 Then rpt.Rpt = "StoreBalCost_O.rpt"
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then rpt.Rpt = "StoreBalCost_Z.rpt"
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then rpt.Rpt = "StoreBalCost_Z.rpt"
             Case 6, 61, 62
                 rpt.Rpt = "StoreBalAllCost.rpt"
             Case 7
@@ -56,7 +56,7 @@ Public Class RPT12
                 rpt.Rpt = "ItemCard3.rpt"
             Case 10
                 rpt.Rpt = "StoreExpiredItems.rpt"
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then rpt.Rpt = "StoreExpiredItems_Z.rpt"
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then rpt.Rpt = "StoreExpiredItems_Z.rpt"
         End Select
         rpt.Show()
         'rpt.Show()

@@ -46,11 +46,11 @@ Public Class Services_G
         Canceled_Unchecked(Nothing, Nothing)
         Returned_Unchecked(Nothing, Nothing)
 
-        If Not Md.Manager AndAlso Not IsServicesLab AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Not Md.Manager AndAlso Not IsServicesLab AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA Then
             bm.AppendWhere = " and (username=" & Md.UserName & " or EmpIdReservation=0)"
         End If
 
-        If Not Md.Manager AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Not Md.Manager AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA Then
             btnFirst.Visibility = Visibility.Hidden
             btnPrevios.Visibility = Visibility.Hidden
             btnNext.Visibility = Visibility.Hidden
@@ -186,7 +186,7 @@ Public Class Services_G
         G.Columns(GC.PreRemaining).Visible = False
         G.Columns(GC.MyLine).Visible = False
 
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             G.Columns(GC.Qty).Visible = False
             If Md.Nurse Then
                 G.Columns(GC.Value).Visible = False
@@ -194,7 +194,7 @@ Public Class Services_G
                 G.Columns(GC.Remaining).Visible = False
             End If
         End If
-        If Not Md.Manager AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Not Md.Manager AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA Then
             G.Columns(GC.Value).ReadOnly = True
         End If
 
@@ -437,7 +437,7 @@ Public Class Services_G
             'If Not bm.Save(New String() {"Flag", SubId}, New String() {Flag, txtID.Text.Trim}) Then Return
 
             If Val(SerialId.Text) = 0 Then 'AndAlso Val(Payed.Text) > 0
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     SerialId.Text = bm.ExecuteScalar("updateServicesSerialIdCo", {"ServiceGroupId", "Flag", "InvoiceNo"}, {0, Flag, Val(txtID.Text)})
                 Else
                     SerialId.Text = bm.ExecuteScalar("updateServicesSerialId", {"ServiceGroupId", "Flag", "InvoiceNo"}, {0, Flag, Val(txtID.Text)})
@@ -446,7 +446,7 @@ Public Class Services_G
             End If
 
             If SerialId2.IsVisible AndAlso Val(SerialId2.Text) = 0 Then 'AndAlso Val(Remaining.Text) > 0 
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     SerialId2.Text = bm.ExecuteScalar("updateServicesSerialIdCo2", {"ServiceGroupId", "Flag", "InvoiceNo"}, {0, Flag, Val(txtID.Text)})
                 Else
                     SerialId2.Text = bm.ExecuteScalar("updateServicesSerialId2", {"ServiceGroupId", "Flag", "InvoiceNo"}, {0, Flag, Val(txtID.Text)})
@@ -476,7 +476,7 @@ Public Class Services_G
         rpt.paraname = New String() {"@Flag", "@Id", "Header", "IsNew"}
         rpt.paravalue = New String() {Flag, txtID.Text, CType(Parent, Page).Title, IIf(IsNew, 1, 0)}
         rpt.Rpt = "ServicesONEG.rpt"
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             rpt.Rpt = "ServicesONEGZohor.rpt"
             If IsServicesLab Then
                 rpt.Rpt = "ServicesONEGZohorLab.rpt"

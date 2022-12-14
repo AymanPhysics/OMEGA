@@ -254,7 +254,7 @@ Public Class Sales
             btnInstallment.Visibility = Visibility.Hidden
         End If
 
-        If Md.MyProjectType <> ProjectType.ZohorOLDXXXXX OrElse Flag <> FlagState.تحويل_إلى_مخزن Then
+        If Md.MyProjectType <> ProjectType.ZohorTaxETA OrElse Flag <> FlagState.تحويل_إلى_مخزن Then
             btnReplacement.Visibility = Visibility.Hidden
         End If
 
@@ -511,7 +511,7 @@ Public Class Sales
         End If
 
 
-        If Flag <> FlagState.تحويل_إلى_مخزن OrElse Md.MyProjectType <> ProjectType.ZohorOLDXXXXX Then
+        If Flag <> FlagState.تحويل_إلى_مخزن OrElse Md.MyProjectType <> ProjectType.ZohorTaxETA Then
             G.Columns(GC.ConsumptionQty).Visible = False
             G.Columns(GC.ConsumptionRemainingQty).Visible = False
         End If
@@ -820,7 +820,7 @@ Public Class Sales
             HelpGD.Columns(1).Width = 300
             HelpGD.Columns(2).Width = 50
 
-            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX) Then
+            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA) Then
                 HelpGD.Columns(2).Visibility = Visibility.Hidden
             End If
 
@@ -889,11 +889,11 @@ Public Class Sales
             st = " and ItemType in(2,3) "
         End If
 
-        If TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorTaxETA Then
             st &= " and (Flag=1 or IsService=1) "
         End If
 
-        If Not TestSalesAndReturn() AndAlso Not TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Not TestSalesAndReturn() AndAlso Not TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorTaxETA Then
             st &= " and IsService=0 "
         End If
         Return st
@@ -1356,7 +1356,7 @@ Br:
 
     Private Sub StoreId_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Input.KeyEventArgs) Handles StoreId.KeyUp
         Dim str As String = " where 1=1 "
-        If TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorTaxETA Then
             str &= " and Flag=1 "
         End If
         If bm.ShowHelp("Stores", StoreId, StoreName, e, "select cast(Id as varchar(100)) Id,Name from Fn_EmpStores(" & Md.UserName & ")" & str) Then
@@ -1367,7 +1367,7 @@ Br:
     Dim StoreUnitId As Integer = 0
     Public Sub StoreId_LostFocus(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles StoreId.LostFocus
         Dim str As String = ""
-        If TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If TestConsumablesAndReturn() AndAlso Not Md.MyProjectType = ProjectType.ZohorTaxETA Then
             str = " and Flag=1"
         End If
         bm.LostFocus(StoreId, StoreName, "select Name from Fn_EmpStores(" & Md.UserName & ") where Id=" & StoreId.Text.Trim() & str)
@@ -1647,7 +1647,7 @@ Br:
             End If
         End If
 
-        If TestImportAndReturn() OrElse TestExportAndReturn() OrElse (Md.MyProjectType = ProjectType.ZohorOLDXXXXX AndAlso TestPurchaseAndReturn()) Then
+        If TestImportAndReturn() OrElse TestExportAndReturn() OrElse (Md.MyProjectType = ProjectType.ZohorTaxETA AndAlso TestPurchaseAndReturn()) Then
                 RdoCash.IsChecked = True
                 RdoFuture.IsChecked = True
             End If
@@ -2130,6 +2130,7 @@ Br:
 
             bm.ExecuteNonQuery("UpdateSalesDetailsComponants", New String() {"Flag", "StoreId", "InvoiceNo"}, New String() {Flag, StoreId.Text, InvoiceNo.Text})
 
+            bm.ExecuteNonQuery("update SalesMasterETA set NeedReSubmit=1 where StoreId=" & StoreId.Text & " and Flag=" & Flag & " and InvoiceNo=" & InvoiceNo.Text)
         End If
 
 
@@ -2362,7 +2363,7 @@ Print:
                 Temp.Visibility = Visibility.Hidden
             End If
 
-            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX) Then
+            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA) Then
                 G.Columns(GC.Price).Visible = False
                 G.Columns(GC.ItemDiscountPerc).Visible = False
                 G.Columns(GC.ItemDiscount).Visible = False
@@ -2777,7 +2778,7 @@ Print:
                 PanelTypes.Visibility = Visibility.Hidden
                 PanelItems.Visibility = Visibility.Hidden
             End If
-            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX) Then
+            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA) Then
                 txtPrice.Visibility = Visibility.Hidden
             End If
         Catch
@@ -3666,7 +3667,7 @@ Print:
             End If
 
 
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 lblDeliveryDate.Visibility = Visibility.Visible
                 DeliveryDate.Visibility = Visibility.Visible
                 lblDeliveryDate.Content = "ت فاتورة المورد"

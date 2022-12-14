@@ -39,7 +39,7 @@ Public Class CaseInvoices
 
         'FromDate.SelectedDate = Now.Date
         ToDate.SelectedDate = Now.Date
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             TabItem5.Visibility = Visibility.Hidden
             FromDate.SelectedDate = Now.Date
         End If
@@ -723,7 +723,7 @@ Public Class CaseInvoices
             rpt.paraname = New String() {"@CaseInvoiceNo", "Header"}
             rpt.paravalue = New String() {Val(txtID.Text), "فاتورة"}
             rpt.Rpt = "CaseInvoice.rpt"
-            If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+            If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                 rpt.Rpt = "CaseInvoice_Z.rpt"
             End If
             If sender Is btnPrintWithoutSave Then

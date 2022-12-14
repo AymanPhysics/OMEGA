@@ -40,7 +40,7 @@ Public Class Stores
         btnNew_Click(sender, e)
         If Md.MyProjectType = ProjectType.Clothes Then
             CheckBox1.Visibility = Visibility.Hidden
-        ElseIf Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        ElseIf Md.MyProjectType = ProjectType.ClinicPublicElSadaka OrElse Md.MyProjectType = ProjectType.APSD OrElse Md.MyProjectType = ProjectType.APS OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
             CheckBox1.Content = "مستهلكات"
         End If
 
@@ -60,7 +60,7 @@ Public Class Stores
             StoreUnitId.Visibility = Visibility.Hidden
         End If
 
-        If Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX AndAlso Not Md.MyProjectType = ProjectType.ClinicPublic AndAlso Not Md.MyProjectType = ProjectType.ClinicWomen AndAlso Not Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb AndAlso Not Md.MyProjectType = ProjectType.ClinicPublicElSadaka AndAlso Not Md.MyProjectType = ProjectType.APSD AndAlso Not Md.MyProjectType = ProjectType.APS Then bm.SetImage(Img, "attchmentfile.jpg")
+        If Not Md.MyProjectType = ProjectType.ZohorTaxETA AndAlso Not Md.MyProjectType = ProjectType.ClinicPublic AndAlso Not Md.MyProjectType = ProjectType.ClinicWomen AndAlso Not Md.MyProjectType = ProjectType.ClinicDrSaberWaheeb AndAlso Not Md.MyProjectType = ProjectType.ClinicPublicElSadaka AndAlso Not Md.MyProjectType = ProjectType.APSD AndAlso Not Md.MyProjectType = ProjectType.APS Then bm.SetImage(Img, "attchmentfile.jpg")
 
     End Sub
 

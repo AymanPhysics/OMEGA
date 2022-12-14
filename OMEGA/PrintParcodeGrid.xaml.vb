@@ -80,7 +80,7 @@ Public Class PrintParcodeGrid
             HelpGD.Columns(1).Width = 300
             HelpGD.Columns(2).Width = 50
 
-            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorOLDXXXXX) Then
+            If (Md.Receptionist AndAlso Md.MyProjectType = ProjectType.Clothes) OrElse (Not Md.Manager AndAlso Md.Nurse AndAlso Md.MyProjectType = ProjectType.ZohorTaxETA) Then
                 HelpGD.Columns(2).Visibility = Visibility.Hidden
             End If
 

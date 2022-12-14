@@ -247,14 +247,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OMEGA.exe" size="11813376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OMEGA.exe" size="11814400">
       <assemblyIdentity name="OMEGA" version="3.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>E5Tkl3Wq18ERobtGsLA3kIy8hj5oDo9VorF9weO1beg=</dsig:DigestValue>
+        <dsig:DigestValue>QSgzBouiqNTt6qi4xjJU8cyBLLNIYfFGjoytubceHN4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -331,30 +331,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Net.Http.Extensions.dll" size="22232">
-      <assemblyIdentity name="System.Net.Http.Extensions" version="2.2.29.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nIuH6alQ3rfyh1L4deqC8bVacJlqyMEgc/zqM2ZLIEg=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Net.Http.Primitives.dll" size="21712">
-      <assemblyIdentity name="System.Net.Http.Primitives" version="2.2.29.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rPDgVVr+0JXPEvcZo80OdFQ1ztJXWECkakDsYe1jImU=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ToastNotifications.dll" size="109568">
       <assemblyIdentity name="ToastNotifications" version="2.5.1.0" publicKeyToken="E89D9D7314A7C797" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -399,13 +375,13 @@
       <dsig:DigestValue>3184wDsl+VsuRZ257f8NhqyeHe9DwhjUKYUOxbWThCw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="OMEGA.exe.config" size="2898">
+  <file name="OMEGA.exe.config" size="2315">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>G8NuKJXBIltbsrfY2VSI+dWpTa3DjfHjzsHb9AzWWFw=</dsig:DigestValue>
+      <dsig:DigestValue>rN600Ps8n0mcdyus11Awf7EDbJj7PyFP+ZIJEBR+9TE=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

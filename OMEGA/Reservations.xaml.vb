@@ -326,7 +326,7 @@ Public Class Reservations
             ReturnedDate.SelectedDate = "1900-01-01"
         End If
 
-        If Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX AndAlso Val(SerialId.Text) > 0 And Val(Payed.Text) = 0 Then
+        If Not Md.MyProjectType = ProjectType.ZohorTaxETA AndAlso Val(SerialId.Text) > 0 And Val(Payed.Text) = 0 Then
             bm.ShowMSG("برجاء تحديد المدفوع")
             Payed.Focus()
             Return
@@ -386,7 +386,7 @@ Public Class Reservations
 
 
             If Val(SerialId.Text) = 0 Then
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     SerialId.Text = bm.ExecuteScalar("updateReservationsSerialIdCo", {"VisitingType", "EmpId", "DayDate", "ReservId"}, {VisitingType.SelectedValue.ToString, EmpId.SelectedValue.ToString, bm.ToStrDate(DateTime.Parse(DayDate.Content.ToString)), lblReservId.Content.ToString})
                 ElseIf Val(Payed.Text) > 0 Then
                     SerialId.Text = bm.ExecuteScalar("updateReservationsSerialId", {"VisitingType", "EmpId", "DayDate", "ReservId"}, {VisitingType.SelectedValue.ToString, EmpId.SelectedValue.ToString, bm.ToStrDate(DateTime.Parse(DayDate.Content.ToString)), lblReservId.Content.ToString})
@@ -395,7 +395,7 @@ Public Class Reservations
             End If
 
             If SerialId2.IsVisible AndAlso Val(SerialId2.Text) = 0 Then
-                If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+                If Md.MyProjectType = ProjectType.ZohorTaxETA Then
                     SerialId2.Text = bm.ExecuteScalar("updateReservationsSerialIdCo2", {"VisitingType", "EmpId", "DayDate", "ReservId"}, {VisitingType.SelectedValue.ToString, EmpId.SelectedValue.ToString, bm.ToStrDate(DateTime.Parse(DayDate.Content.ToString)), lblReservId.Content.ToString})
                 ElseIf Val(Remaining.Text) > 0 Then
                     SerialId2.Text = bm.ExecuteScalar("updateReservationsSerialId2", {"VisitingType", "EmpId", "DayDate", "ReservId"}, {VisitingType.SelectedValue.ToString, EmpId.SelectedValue.ToString, bm.ToStrDate(DateTime.Parse(DayDate.Content.ToString)), lblReservId.Content.ToString})
@@ -651,7 +651,7 @@ Public Class Reservations
         rpt.paraname = New String() {"@EmpId", "@Date", "@Id", "Header", "IsNew"}
         rpt.paravalue = New String() {Val(EmpId.SelectedValue), DayDate.Content, Val(lblReservId.Content), CType(Parent, Page).Title, IIf(IsNew, 1, 0)}
         rpt.Rpt = "ReservationONE.rpt"
-        If Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Md.MyProjectType = ProjectType.ZohorTaxETA Then
             rpt.Rpt = "ReservationONEZohor.rpt"
         End If
         rpt.Print(".", Md.PonePrinter, 1)
@@ -819,7 +819,7 @@ Public Class Reservations
     End Sub
 
     Private Sub CurrentShift_TextChanged(sender As Object, e As TextChangedEventArgs) Handles CurrentShift.TextChanged
-        If Not Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then Return
+        If Not Md.MyProjectType = ProjectType.ZohorTaxETA Then Return
         If Val(CurrentShift.Text) > 0 Then
             btnSaveWithoutPrint.IsEnabled = Md.Manager
         Else

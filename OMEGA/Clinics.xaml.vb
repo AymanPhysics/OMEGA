@@ -58,7 +58,7 @@ Public Class Clinics
             TabControl1.Visibility = Visibility.Hidden
         End If
 
-        If Flag <> 5 OrElse Md.MyProjectType = ProjectType.ZohorOLDXXXXX Then
+        If Flag <> 5 OrElse Md.MyProjectType = ProjectType.ZohorTaxETA Then
             lblLiving.Visibility = Visibility.Hidden
             Living.Visibility = Visibility.Hidden
             lblSupervision.Visibility = Visibility.Hidden

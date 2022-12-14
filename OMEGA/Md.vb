@@ -5,7 +5,7 @@ Imports System.Drawing
 
 Module Md
     Public LastVersion As Integer = 265
-    Public MyProjectType As ProjectType = ProjectType.Market
+    Public MyProjectType As ProjectType = ProjectType.ZohorTaxETA
     'Install-Package NavigationPane
 
     Public AllowPreviousYearsForNonManager = True
@@ -89,7 +89,7 @@ Module Md
         Market 'RivieraMarket & Saadany
         ClinicPublic
         MedicalCenter
-        ZohorOLDXXXXX
+        ZohorTaxETA
         ClinicWomen
         ClinicDrSaberWaheeb
         ClinicPublicElSadaka
